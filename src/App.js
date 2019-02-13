@@ -31,15 +31,33 @@ class App extends React.Component {
 
   state = initialState;
 
-  addTodo = (e) => {
+  handleTodoEdit = e => {
+    const { newTodo } = this.state;
+    this.setState({ ...this.state, newTodo: { ...newTodo, task: e.target.value}} );
+  }
+
+  addTodo = e => {
+    e.preventDefault();
+    const { newTodo, todos } = this.state;
+
+    if(newTodo.task !== '') {
+      this.setState({
+        ...this.state,
+        todos: [...todos, newTodo],
+        newTodo: {
+          ...initialState.newTodo,
+          id: shortid.generate()
+        }
+      });
+    }
   }
 
   render() {
-    const { todos } = this.state;
+    const { todos, newTodo } = this.state;
     return (
       <div>
         <TodoList todos={todos} />
-        <TodoForm />
+        <TodoForm task={newTodo.task} onChange={this.handleTodoEdit} onSubmit={this.addTodo} />
       </div>
     );
   }
