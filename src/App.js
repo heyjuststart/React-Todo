@@ -36,6 +36,13 @@ class App extends React.Component {
     this.setState({ ...this.state, newTodo: { ...newTodo, task: e.target.value}} );
   }
 
+  handleTodoClick = id => {
+    const newTodos = [ ...this.state.todos ];
+    const index = this.state.todos.findIndex( e => e.id === id );
+    newTodos[index] = { ...newTodos[index], completed: !newTodos[index].completed };
+    this.setState({ ...this.state, todos: newTodos });
+  }
+
   addTodo = e => {
     e.preventDefault();
     const { newTodo, todos } = this.state;
@@ -56,7 +63,7 @@ class App extends React.Component {
     const { todos, newTodo } = this.state;
     return (
       <div>
-        <TodoList todos={todos} />
+        <TodoList onTodoClick={this.handleTodoClick} todos={todos} />
         <TodoForm task={newTodo.task} onChange={this.handleTodoEdit} onSubmit={this.addTodo} />
       </div>
     );
