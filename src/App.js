@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import shortid from 'shortid';
 
 const initialState = {
   todos: [
@@ -14,7 +15,13 @@ const initialState = {
     { id: 8, task: "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.", completed: false },
     { id: 9, task: "Vivamus vel nulla eget eros elementum pellentesque.", completed: false },
     { id: 10, task: "Aliquam sit amet diam in magna bibendum imperdiet.", completed: true }
-  ]
+  ],
+
+  newTodo: {
+    task: '',
+    id: shortid.generate(),
+    completed: false
+  }
 };
 
 class App extends React.Component {
