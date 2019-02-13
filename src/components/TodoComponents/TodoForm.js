@@ -11,6 +11,7 @@ const TodoForm = (props) => (
       autoComplete="off"
     />
     <button type="submit">Add Todo</button>
+    <button onClick={props.onClear}>Clear Completed</button>
   </form>
 );
 
