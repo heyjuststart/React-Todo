@@ -69,7 +69,12 @@ class App extends React.Component {
     return (
       <div>
         <TodoList onTodoClick={this.handleTodoClick} todos={todos} />
-        <TodoForm task={newTodo.task} onClear={this.handleClearCompletedClick} onChange={this.handleTodoEdit} onSubmit={this.addTodo} />
+        <TodoForm
+          task={newTodo.task}
+          onClear={this.handleClearCompletedClick}
+          onChange={this.handleTodoEdit}
+          onSubmit={this.addTodo}
+        />
       </div>
     );
   }
