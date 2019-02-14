@@ -1,0 +1,30 @@
+$font-family: 'Roboto', sans-serif;
+
+// background for darkt designs, text color for inverted
+$todo-light-shades: #f1f8f5;
+
+// near white
+$todo-white: lighten($todo-light-shades, 8%);
+
+// used to bring attention by contrasting with rest of palette
+$todo-light-accent: #f4ca65;
+
+// eye-catching but not harsh, can be liberally applied
+$todo-main-brand: #e55653;
+
+// another possible accent, might not use both
+$todo-dark-accent: #8f91a5;
+
+// used as text color for dark-on-light, or background for inverted
+$todo-dark-shades: #40485;
+
+// accents
+$todo-accent-1: #E89980;
+$todo-accent-2: #7FCDB8;
+$todo-accent-3: #90B0BA;
+$todo-accent-4: #E5CB95;
+$todo-font-family: 'Source Sans Pro', sans-serif;
+
+// desktop breakpoint
+$desktop: '(min-width: 1000px)';
+$tablet: '(min-width: 800px)';
