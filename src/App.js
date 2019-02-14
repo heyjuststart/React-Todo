@@ -1,7 +1,9 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoFilter from './components/TodoComponents/TodoFilter';
 import shortid from 'shortid';
+import './scss/App.scss';
 
 const initialState = {
   todos: [
@@ -16,12 +18,12 @@ const initialState = {
     { id: 9, task: "Vivamus vel nulla eget eros elementum pellentesque.", completed: false },
     { id: 10, task: "Aliquam sit amet diam in magna bibendum imperdiet.", completed: true }
   ],
-
   newTodo: {
     task: '',
     id: shortid.generate(),
     completed: false
-  }
+  },
+  filterText: ''
 };
 
 class App extends React.Component {
@@ -67,7 +69,9 @@ class App extends React.Component {
   render() {
     const { todos, newTodo } = this.state;
     return (
-      <div>
+      <div className="todo-app">
+        <h1>Todo App</h1>
+        <TodoFilter />
         <TodoList onTodoClick={this.handleTodoClick} todos={todos} />
         <TodoForm
           task={newTodo.task}
