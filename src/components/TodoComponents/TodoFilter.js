@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TodoFilter = (props) => (
-  <form className="todo-filter" onSubmit={props.onFilter}>
+  <form className="todo-filter" onSubmit={props.onFilterSubmit}>
     <input
       type="text"
       placeholder="Filter Todos..."

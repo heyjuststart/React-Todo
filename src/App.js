@@ -50,6 +50,14 @@ class App extends React.Component {
     this.setState({ ...this.state, todos: newTodos });
   }
 
+  handleFilterChange = e => {
+    this.setState({ ...this.state, filterText: e.target.value } );
+  };
+
+  handleFilterSubmit = (e) => {
+    e.preventDefault();
+  }
+
   addTodo = e => {
     e.preventDefault();
     const { newTodo, todos } = this.state;
@@ -67,12 +75,17 @@ class App extends React.Component {
   }
 
   render() {
-    const { todos, newTodo } = this.state;
+    const { todos, newTodo, filterText } = this.state;
+    const filteredTodos = todos.filter(t => t.task.toLowerCase().indexOf(filterText.toLowerCase()) > -1);
     return (
       <div className="todo-app">
         <h1>Todo App</h1>
-        <TodoFilter />
-        <TodoList onTodoClick={this.handleTodoClick} todos={todos} />
+        <TodoFilter
+          filterText={filterText}
+          onFilter={this.handleFilterChange}
+          onFilterSubmit={this.handleFilterSubmit}
+        />
+        <TodoList onTodoClick={this.handleTodoClick} todos={filteredTodos} />
         <TodoForm
           task={newTodo.task}
           onClear={this.handleClearCompletedClick}
