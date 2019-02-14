@@ -8,6 +8,7 @@ const TodoFilter = (props) => (
       onChange={props.onFilter}
       value={props.filterText}
       name="filterText"
+      autoComplete="off"
     />
   </form>
 );
