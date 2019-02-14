@@ -1,5 +1,12 @@
+@import '../../scss/variables.scss';
+
 .todo {
   cursor: pointer;
+  background: $todo-white;
+  border-radius: 4px;
+  color: $todo-dark-shades;
+  padding: 5px;
+  margin: 5px 0px;
 }
 
 .completed {

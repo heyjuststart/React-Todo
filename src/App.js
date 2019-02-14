@@ -80,18 +80,20 @@ class App extends React.Component {
     return (
       <div className="todo-app">
         <h1>Todo App</h1>
-        <TodoFilter
-          filterText={filterText}
-          onFilter={this.handleFilterChange}
-          onFilterSubmit={this.handleFilterSubmit}
-        />
-        <TodoList onTodoClick={this.handleTodoClick} todos={filteredTodos} />
-        <TodoForm
-          task={newTodo.task}
-          onClear={this.handleClearCompletedClick}
-          onChange={this.handleTodoEdit}
-          onSubmit={this.addTodo}
-        />
+        <div className="container">
+          <TodoFilter
+            filterText={filterText}
+            onFilter={this.handleFilterChange}
+            onFilterSubmit={this.handleFilterSubmit}
+          />
+          <TodoList onTodoClick={this.handleTodoClick} todos={filteredTodos} />
+          <TodoForm
+            task={newTodo.task}
+            onClear={this.handleClearCompletedClick}
+            onChange={this.handleTodoEdit}
+            onSubmit={this.addTodo}
+          />
+        </div>
       </div>
     );
   }
